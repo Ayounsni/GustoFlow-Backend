@@ -11,7 +11,7 @@ import java.util.Random;
 @AllArgsConstructor
 public class CreateTableDTO {
 
-    private int secretCode; // Code secret de la table
+    private Integer secretCode; // Code secret de la table
 
     private TableStatus tableStatus = TableStatus.AVAILABLE; // Statut de la table (par défaut : AVAILABLE)
 

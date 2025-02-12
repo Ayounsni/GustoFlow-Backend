@@ -17,7 +17,7 @@ public class UpdatePlateDTO {
 
     private int price; // Prix du plat
 
-    private boolean available; // Disponibilité du plat
+    private Boolean available; // Disponibilité du plat
 
     private Long categoryId; // ID de la catégorie associée
 }

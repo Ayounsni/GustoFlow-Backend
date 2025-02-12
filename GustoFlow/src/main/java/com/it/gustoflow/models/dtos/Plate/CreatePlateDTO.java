@@ -22,7 +22,7 @@ public class CreatePlateDTO {
     @NotNull
     private int price; // Prix du plat
 
-    private boolean available = true; // Disponibilité du plat
+    private Boolean available = true; // Disponibilité du plat
 
     @NotNull
     @Exists(entity = Category.class, message = "Cette categorie n'existe pas.")

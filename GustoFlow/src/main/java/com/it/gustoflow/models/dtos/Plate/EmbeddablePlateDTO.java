@@ -13,5 +13,5 @@ public class EmbeddablePlateDTO {
     private String name; // Nom du plat
     private String description; // Description du plat
     private int price; // Prix du plat
-    private boolean available; // Disponibilité du plat
+    private Boolean available; // Disponibilité du plat
 }

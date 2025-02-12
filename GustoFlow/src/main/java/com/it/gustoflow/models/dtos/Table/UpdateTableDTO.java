@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateTableDTO {
-    private int number; // Numéro de la table
-    private int secretCode; // Code secret de la table
+    private Integer number; // Numéro de la table
+    private Integer secretCode;
     private TableStatus tableStatus;
 }

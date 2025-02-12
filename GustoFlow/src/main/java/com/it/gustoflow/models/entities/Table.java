@@ -20,14 +20,22 @@ public class Table {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private int number;
+
+    private Integer number;
 
     @NotNull
-    private int secretCode;
+    private Integer secretCode;
 
     @Enumerated(EnumType.STRING)
     private TableStatus tableStatus; // Relation avec le statut de la table (disponible/occupée)
 
     @OneToMany(mappedBy = "table", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<CallRequest> calls ;
+
+    private static int counter = 1;
+
+    @PrePersist
+    public void generateNumber() {
+        this.number = counter++;
+    }
 }

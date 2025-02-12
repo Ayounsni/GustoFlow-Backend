@@ -1,6 +1,7 @@
 package com.it.gustoflow.controllers;
 
 import com.it.gustoflow.models.dtos.Pagination.PageDTO;
+import com.it.gustoflow.models.dtos.Table.CodeSecretDTO;
 import com.it.gustoflow.models.dtos.Table.CreateTableDTO;
 import com.it.gustoflow.models.dtos.Table.ResponseTableDTO;
 import com.it.gustoflow.models.dtos.Table.UpdateTableDTO;
@@ -28,6 +29,20 @@ public class TableController {
         ResponseTableDTO table = tableService.create(createTableDTO);
         return new ResponseEntity<>(table, HttpStatus.OK);
     }
+
+    @GetMapping("/generateCode/{id}")
+    public ResponseEntity<ResponseTableDTO> generateCode(@Exists(entity = Table.class , message = "Cet table n'existe pas.") @PathVariable("id") Long id) {
+        ResponseTableDTO table = tableService.generateSecretCode(id);
+        return new ResponseEntity<>(table, HttpStatus.OK);
+    }
+
+    @PostMapping("/verification/{id}")
+    public ResponseEntity<Boolean> generateCode(@Exists(entity = Table.class , message = "Cet table n'existe pas.")@PathVariable("id") Long id,@Valid @RequestBody CodeSecretDTO codeSecretDTO) {
+        Boolean verification = tableService.verifySecretCode(id, codeSecretDTO);
+        return new ResponseEntity<>(verification, HttpStatus.OK);
+    }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<ResponseTableDTO> getTableById(@Exists(entity = Table.class , message = "Cet table n'existe pas.")  @PathVariable("id") Long id) {
